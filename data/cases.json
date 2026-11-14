@@ -1,0 +1,35 @@
+[
+  {
+    "case_id": "CASE-1001",
+    "title": "Training content fails to load",
+    "product_area": "Content player",
+    "symptom": "Several learners see a temporary error when opening one course.",
+    "request_id": "req-demo-a17",
+    "http_status": 502,
+    "affected_scope": "Several learners in one customer account",
+    "recent_change": "The customer reports an integration update earlier today.",
+    "customer_impact": "A group of learners cannot complete the assigned course."
+  },
+  {
+    "case_id": "CASE-1002",
+    "title": "API request is rejected",
+    "product_area": "REST API",
+    "symptom": "A scheduled integration receives an unauthorized response.",
+    "request_id": "req-demo-b24",
+    "http_status": 401,
+    "affected_scope": "One integration",
+    "recent_change": "Credential rotation was planned this week; completion is unconfirmed.",
+    "customer_impact": "The nightly user sync may be delayed."
+  },
+  {
+    "case_id": "CASE-1003",
+    "title": "Dashboard data appears out of date",
+    "product_area": "Analytics dashboard",
+    "symptom": "One administrator reports that today's activity is not visible yet.",
+    "request_id": "req-demo-c08",
+    "http_status": 200,
+    "affected_scope": "One administrator",
+    "recent_change": "No recent change has been reported.",
+    "customer_impact": "The administrator cannot confirm the latest learner activity."
+  }
+]
