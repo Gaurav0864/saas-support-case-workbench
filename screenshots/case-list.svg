@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360" role="img" aria-labelledby="title description">
+  <title id="title">Sample case list output</title>
+  <desc id="description">Terminal-style preview of the three fictional cases listed by the command-line application.</desc>
+  <rect width="1280" height="360" rx="18" fill="#0b1020"/>
+  <path d="M18 0h1244a18 18 0 0 1 18 18v42H0V18A18 18 0 0 1 18 0Z" fill="#182235"/>
+  <circle cx="30" cy="30" r="7" fill="#fb7185"/>
+  <circle cx="54" cy="30" r="7" fill="#fbbf24"/>
+  <circle cx="78" cy="30" r="7" fill="#34d399"/>
+  <text x="110" y="36" fill="#cbd5e1" font-family="Consolas, 'Courier New', monospace" font-size="17">SaaS Support Case Workbench - sample run</text>
+  <g font-family="Consolas, 'Courier New', monospace" font-size="18">
+    <text x="34" y="104" fill="#67e8f9">PS C:\Users\User\Libraries\saas-support-case-workbench&gt;</text>
+    <text x="34" y="136" fill="#f8fafc">python app.py --list-cases</text>
+    <text x="34" y="194" fill="#e2e8f0">CASE-1001: Training content fails to load (Content player)</text>
+    <text x="34" y="232" fill="#e2e8f0">CASE-1002: API request is rejected (REST API)</text>
+    <text x="34" y="270" fill="#e2e8f0">CASE-1003: Dashboard data appears out of date (Analytics dashboard)</text>
+  </g>
+  <text x="34" y="326" fill="#94a3b8" font-family="Consolas, 'Courier New', monospace" font-size="14">All case data shown here is fictional.</text>
+</svg>

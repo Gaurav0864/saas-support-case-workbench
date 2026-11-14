@@ -59,6 +59,41 @@ py -m unittest discover -s tests -v
 4. Verify each relevant item using approved company tools and sanitized data.
 5. Edit the handoff with verified evidence before escalating it.
 
+## How it works
+
+1. `app.py` reads command-line options such as `--list-cases`,
+   `--case-id CASE-1001`, and `--json`.
+2. `load_cases()` reads `data/cases.json` and checks each case for required
+   fields, a unique case ID, and a valid HTTP status code. Bad data is reported
+   instead of being silently analyzed.
+3. `analyze_case()` compares the recorded status with simple rules:
+   - `401` or `403`: start by checking authentication and permissions.
+   - Other `4xx`: start by checking the request or client behavior.
+   - `5xx`: investigate the service or its dependencies; the cause is not
+     assumed.
+   - Other statuses: investigate the reported behavior even if the request
+     succeeded.
+4. The tool adds a recent-change check when the case reports a possible change.
+   These are investigation suggestions, not proof of root cause.
+5. `format_report()` prints a readable summary and handoff.
+   With `--json`, the same analysis is printed as JSON instead.
+6. `tests/test_app.py` checks the rules, invalid input handling, and CLI
+   behavior using Python's built-in `unittest`.
+
+## Sample output previews
+
+These are static, terminal-style previews made from the project's real sample
+commands. They are illustrative images, not raw screenshots of a particular
+computer.
+
+### List the sample cases
+
+![Sample case list output](screenshots/case-list.svg)
+
+### Investigate CASE-1001
+
+![Sample CASE-1001 investigation output](screenshots/case-1001-investigation.svg)
+
 ## Project files
 
 | File | Purpose |
@@ -66,6 +101,7 @@ py -m unittest discover -s tests -v
 | `app.py` | Loads and validates cases, analyzes symptoms, and runs the CLI. |
 | `data/cases.json` | Fictional case records used by the demo. |
 | `tests/test_app.py` | Tests case validation, analysis, and command output. |
+| `screenshots/` | Static terminal-style previews of real sample output. |
 
 ## Skills demonstrated
 
