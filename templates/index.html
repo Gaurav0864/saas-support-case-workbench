@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Practice structured support investigations with fictional SaaS incidents.">
+  <title>Support Incident Lab</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell nav">
+      <a class="brand" href="/">Support Incident Lab</a>
+      <span class="local-label">Local practice environment</span>
+    </div>
+  </header>
+  <main class="shell">
+    <section class="hero">
+      <span class="eyebrow">Practice support triage</span>
+      <h1>Turn a support report into a useful next step.</h1>
+      <p>Follow a fictional customer issue from reported symptoms to request-ID-linked evidence and a careful handoff. Run a synthetic request to see how its trace is formed.</p>
+    </section>
+    <section class="section" aria-labelledby="incidents-title">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Try the workflow</span>
+          <h2 id="incidents-title">Choose an incident</h2>
+        </div>
+        <span class="count">4 fictional scenarios</span>
+      </div>
+      <div class="case-grid">
+        {{CASE_CARDS}}
+      </div>
+    </section>
+    <aside class="notice">
+      <strong>Practice, not production:</strong> cases and logs are fictional. The app does not contact external services.
+    </aside>
+  </main>
+  <footer class="footer">
+    <div class="shell">Start with evidence. Keep the cause unconfirmed until it is verified.</div>
+  </footer>
+</body>
+</html>

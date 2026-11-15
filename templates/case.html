@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A fictional support case investigation and simulated request trace.">
+  <title>{{TITLE}} | Support Incident Lab</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell nav">
+      <a class="brand" href="/">Support Incident Lab</a>
+      <span class="local-label">Local practice environment</span>
+    </div>
+  </header>
+  <main class="shell">
+    <a class="back-link" href="/">&larr; All incidents</a>
+    <section class="hero report-hero">
+      <span class="eyebrow">{{CASE_ID}} &middot; HTTP {{HTTP_STATUS}}</span>
+      <h1>{{TITLE}}</h1>
+      <p>{{SYMPTOM}}</p>
+    </section>
+    <section class="panel">
+      <span class="eyebrow">Customer context</span>
+      <h2>Impact and scope</h2>
+      <p>{{CUSTOMER_IMPACT}}</p>
+      <dl class="facts">
+        <div><dt>Affected scope</dt><dd>{{AFFECTED_SCOPE}}</dd></div>
+        <div><dt>Reported recent change</dt><dd>{{RECENT_CHANGE}}</dd></div>
+        <div><dt>Request ID</dt><dd><code>{{REQUEST_ID}}</code></dd></div>
+      </dl>
+    </section>
+    <section class="panel">
+      <span class="eyebrow">Correlate the evidence</span>
+      <h2>Request timeline</h2>
+      <p>These sample events share the case request ID.</p>
+      <ul class="timeline">{{EVIDENCE_EVENTS}}</ul>
+    </section>
+    <section class="panel simulation-panel">
+      <span class="eyebrow">Hands-on practice</span>
+      <h2>Run a synthetic request</h2>
+      <p>This creates a fresh request ID and simulated trace. No external API is called.</p>
+      <button class="button" id="simulate" data-case-id="{{CASE_ID_ATTRIBUTE}}" type="button">Run simulated request</button>
+      <div id="simulation-result" aria-live="polite"></div>
+    </section>
+    <section class="panel">
+      <span class="eyebrow">Investigation guide</span>
+      <h2>First checks</h2>
+      <p>{{ASSESSMENT}}</p>
+      <ol class="check-list">{{CHECKS}}</ol>
+      <p class="note">These are investigation prompts, not confirmed causes.</p>
+    </section>
+    <section class="panel">
+      <span class="eyebrow">Communication drafts</span>
+      <h2>Customer update</h2>
+      <pre>{{CUSTOMER_UPDATE}}</pre>
+      <h2>Engineering handoff</h2>
+      <pre>{{HANDOFF}}</pre>
+      <p class="note">Verify the facts and edit the drafts before sharing.</p>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="shell">Synthetic examples only. Use authorized tools and evidence for real incidents.</div>
+  </footer>
+</body>
+</html>

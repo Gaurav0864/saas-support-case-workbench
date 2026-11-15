@@ -4,3 +4,11 @@ __pycache__/
 venv/
 .coverage
 .pytest_cache/
+.env
+.env.*
+!.env.example
+.flask_secret
+*.db
+*.sqlite3
+.DS_Store
+.idea/

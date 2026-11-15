@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Support Incident Lab",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}\\app.py",
+      "args": [
+        "--serve"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}

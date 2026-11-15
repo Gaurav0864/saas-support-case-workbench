@@ -8,7 +8,30 @@
     "http_status": 502,
     "affected_scope": "Several learners in one customer account",
     "recent_change": "The customer reports an integration update earlier today.",
-    "customer_impact": "A group of learners cannot complete the assigned course."
+    "customer_impact": "A group of learners cannot complete the assigned course.",
+    "events": [
+      {
+        "timestamp": "2025-03-08T10:15:02Z",
+        "service": "api-gateway",
+        "level": "INFO",
+        "message": "Request forwarded to content-player.",
+        "request_id": "req-demo-a17"
+      },
+      {
+        "timestamp": "2025-03-08T10:15:05Z",
+        "service": "content-player",
+        "level": "ERROR",
+        "message": "Upstream content dependency timed out after 3000 ms.",
+        "request_id": "req-demo-a17"
+      },
+      {
+        "timestamp": "2025-03-08T10:15:05Z",
+        "service": "api-gateway",
+        "level": "WARN",
+        "message": "Returning HTTP 502 after upstream timeout.",
+        "request_id": "req-demo-a17"
+      }
+    ]
   },
   {
     "case_id": "CASE-1002",
@@ -19,7 +42,23 @@
     "http_status": 401,
     "affected_scope": "One integration",
     "recent_change": "Credential rotation was planned this week; completion is unconfirmed.",
-    "customer_impact": "The nightly user sync may be delayed."
+    "customer_impact": "The nightly user sync may be delayed.",
+    "events": [
+      {
+        "timestamp": "2025-03-08T02:10:11Z",
+        "service": "api-gateway",
+        "level": "INFO",
+        "message": "Request received for the user-sync endpoint.",
+        "request_id": "req-demo-b24"
+      },
+      {
+        "timestamp": "2025-03-08T02:10:11Z",
+        "service": "identity-service",
+        "level": "WARN",
+        "message": "Authentication failed: token is expired or invalid; credential values redacted.",
+        "request_id": "req-demo-b24"
+      }
+    ]
   },
   {
     "case_id": "CASE-1003",
@@ -30,6 +69,49 @@
     "http_status": 200,
     "affected_scope": "One administrator",
     "recent_change": "No recent change has been reported.",
-    "customer_impact": "The administrator cannot confirm the latest learner activity."
+    "customer_impact": "The administrator cannot confirm the latest learner activity.",
+    "events": [
+      {
+        "timestamp": "2025-03-08T11:42:00Z",
+        "service": "api-gateway",
+        "level": "INFO",
+        "message": "Dashboard activity query completed with HTTP 200.",
+        "request_id": "req-demo-c08"
+      },
+      {
+        "timestamp": "2025-03-08T11:42:00Z",
+        "service": "analytics-cache",
+        "level": "INFO",
+        "message": "Returned a cached snapshot; verify its age against the expected refresh interval.",
+        "request_id": "req-demo-c08"
+      }
+    ]
+  },
+  {
+    "case_id": "CASE-1004",
+    "title": "User sync hits a rate limit",
+    "product_area": "REST API integration",
+    "symptom": "A scheduled user sync pauses after repeated requests are throttled.",
+    "request_id": "req-demo-d31",
+    "http_status": 429,
+    "affected_scope": "One customer integration during its nightly sync",
+    "recent_change": "The integration schedule was changed this week.",
+    "customer_impact": "Some user updates may not appear until the sync completes.",
+    "events": [
+      {
+        "timestamp": "2025-03-08T02:12:41Z",
+        "service": "api-gateway",
+        "level": "INFO",
+        "message": "User-sync request received.",
+        "request_id": "req-demo-d31"
+      },
+      {
+        "timestamp": "2025-03-08T02:12:41Z",
+        "service": "rate-limiter",
+        "level": "WARN",
+        "message": "Request limit exceeded; retry-after guidance was returned.",
+        "request_id": "req-demo-d31"
+      }
+    ]
   }
 ]
